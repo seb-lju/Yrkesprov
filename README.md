@@ -22,7 +22,3 @@ Användare till sidan:<br />
 Username: guest<br />
 Password: 2wsx0okm<br />
 
-DBUser<br />
-user: ljungarssiktge20_sebl<br />
-pwd: fIQC+@IQ[AhP<br />
-
