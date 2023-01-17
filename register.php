@@ -12,33 +12,37 @@
 
 <body>
 	
-	
+	</div>
 <?php
-	 $user="";
-	 $pass="";
+	$user="";
+	$pass="";
 	
-	echo '<form action="register.php?a=yes" name="newuser" method="post">';
-			echo '<h3>Sign up</h3>';
-				echo '<p>';
-					echo '<label for="name">Display name:</label><br />';
-					echo '<input type="text" name="name" id="name" size="40" value="" required>';
-				echo '</p>';
-				echo '<p>';
-					echo '<label for="username">Username:</label><br />';
-					echo '<input type="text" name="username" id="username" size="40" value="" required>';
-				echo '</p>';
-				echo '<p>';
-					echo '<label for="password">Password:</label><br />';
-					echo '<input type="password" name="password" id="password" size="40" value="" required>';
-				echo '</p>';
-				echo '<p>';
-					echo '<label for="password2">Re-enter password:</label><br />';
-					echo '<input type="password" name="password2" id="password2" size="40" value="" required>';
-				echo '</p>';
-				echo '<p>';
-					echo '<input type="submit" class="send" name="submit" id="submit" value="Sign up">';
-				echo '</p>';
-	echo '</form>';
+	echo '<div class="loginform">';?>
+		<button class="back" onclick="location.href='/YP/index.php'">&#8617;</button>
+			<?
+				echo '<form action="register.php?a=yes" name="newuser" method="post">';
+					echo '<h3>Sign up</h3>'; 
+					echo '<p>';
+						echo '<label for="name">Display name:</label><br />';
+						echo '<input type="text" name="name" id="name" size="40" value="" required>';
+					echo '</p>';
+					echo '<p>';
+						echo '<label for="username">Username:</label><br />';
+						echo '<input type="text" name="username" id="username" size="40" value="" required>';
+					echo '</p>';
+					echo '<p>';
+						echo '<label for="password">Password:</label><br />';
+						echo '<input type="password" name="password" id="password" size="40" value="" required>';
+					echo '</p>';
+					echo '<p>';
+						echo '<label for="password2">Re-enter password:</label><br />';
+						echo '<input type="password" name="password2" id="password2" size="40" value="" required>';
+					echo '</p>';
+					echo '<p>';
+						echo '<input type="submit" class="send" name="submit" id="submit" value="Sign up">';
+					echo '</p>';
+		echo '</form>';
+	echo '</div';
 	
 	function cleanData($data){
 		$data = strip_tags($data, '<b>');
@@ -63,11 +67,12 @@
 			
 			$pwd = password_hash($pass, PASSWORD_ARGON2I);
 			
-			$sql = "INSERT INTO user(name, uname, pwd) VALUES ('$name',$user','$pwd')";
+			$sql = "INSERT INTO user(name, uname, pwd) VALUES ('$name','$user','$pwd')";
 			
 			$dbconn->query($sql);
 			
 			$dbconn->close();
+			
 			
 			header("Location: index.php");
 		}
