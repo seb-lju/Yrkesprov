@@ -12,10 +12,6 @@
 
 <body>
 	
-	<div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
 	
 <?php
 	 $user="";
@@ -24,7 +20,7 @@
 	echo '<form action="register.php?a=yes" name="newuser" method="post">';
 			echo '<h3>Sign up</h3>';
 				echo '<p>';
-					echo '<label for="username">Name:</label><br />';
+					echo '<label for="name">Display name:</label><br />';
 					echo '<input type="text" name="name" id="name" size="40" value="" required>';
 				echo '</p>';
 				echo '<p>';
@@ -32,15 +28,15 @@
 					echo '<input type="text" name="username" id="username" size="40" value="" required>';
 				echo '</p>';
 				echo '<p>';
-					echo '<label for="username">Password:</label><br />';
-					echo '<input type="text" name="password" id="password" size="40" value="" required>';
+					echo '<label for="password">Password:</label><br />';
+					echo '<input type="password" name="password" id="password" size="40" value="" required>';
 				echo '</p>';
 				echo '<p>';
-					echo '<label for="username">Re-enter password:</label><br />';
-					echo '<input type="text" name="password2" id="password2" size="40" value="" required>';
+					echo '<label for="password2">Re-enter password:</label><br />';
+					echo '<input type="password" name="password2" id="password2" size="40" value="" required>';
 				echo '</p>';
 				echo '<p>';
-					echo '<input type="submit" name="submit" id="submit" value="Sign up">';
+					echo '<input type="submit" class="send" name="submit" id="submit" value="Sign up">';
 				echo '</p>';
 	echo '</form>';
 	
