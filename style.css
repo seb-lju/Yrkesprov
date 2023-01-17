@@ -55,27 +55,24 @@ table {
     box-sizing: border-box;
 }
 body{
-    background-color: #080710;
+	margin: 0px;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
 }
-.background{
-    width: 430px;
-    height: 520px;
+.loginform{
+    height: 720px;
+    width: 400px;
+	padding: 20px 30px 0 0;
     position: absolute;
     transform: translate(-50%,-50%);
     left: 50%;
     top: 50%;
 }
-.background .shape{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    border-radius: 50%;
-}
 
-form{
+
+.loginform form{
     height: 720px;
     width: 400px;
-    background-color: rgba(255,255,255,0.13);
+    background-color: rgba(0,0,0,1);
     position: absolute;
     transform: translate(-50%,-50%);
     top: 50%;
@@ -85,28 +82,29 @@ form{
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
     padding: 50px 35px;
+	z-index: -100;
 }
-form *{
+.loginform form *{
     font-family: 'Poppins',sans-serif;
     color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-form h3{
+.loginform form h3{
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-label{
+.loginform label{
     display: block;
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
 }
-input{
+.loginform input{
     display: block;
     height: 50px;
     width: 100%;
@@ -117,10 +115,10 @@ input{
     font-size: 16px;
     font-weight: 300;
 }
-::placeholder{
+.loginform ::placeholder{
     color: #e5e5e5;
 }
-.send{
+.loginform .send{
     margin-top: 50px;
     width: 80%;
     background-color: #ffffff;
@@ -132,4 +130,72 @@ input{
 	cursor: pointer;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.navbar-container {
+    box-shadow: 0px 4px 5px 0px rgba(255, 64, 195, 0.71);
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(255, 64, 195, 0.71);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(255, 64, 195, 0.71);
+}
+.navbar {
+    max-width: 1560px;
+    padding: 20px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+
+.navbar-left a {
+    text-transform: uppercase;
+    font-weight: 600;
+	text-decoration: none;
+	color: #000;
+}
+.navbar-left a:hover {
+    color: #ff40c3;
+}
+
+.navbar-left,
+.navbar-right {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left > *,
+.navbar-right > * {
+    margin: 10px;
+}
+
+
+.btn {
+    font-weight: 500;
+    border: 1px solid black;
+    border-radius: 40px;
+    padding: 5px 20px 5px 20px;
+	cursor: pointer;
+}
+
+.btn-register {
+    background-color: black;
+    color: white;
+}
+
+.btn-register:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.btn-login:hover {
+    background-color: rgba(0, 0, 0, 0.06);
+}
+
+.back {
+	font-size:28px;
+	color:white;
+	float:right;
+	cursor:pointer;
+	margin:20px 0 0 30px;
+	background: #000;
 }
