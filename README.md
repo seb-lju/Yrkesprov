@@ -16,9 +16,12 @@ Plan:<br />
  att registrera dig måste du trycka på en knapp som öppnar ett större formulär. På 
  hemsidan finns "Create bracket" och alla public brackets. I Navbar ska det finnas 
  samma saker + About + Profile, där man kan se sina egna brackets. Create bracket 
- öppnar ett formulär där man kan välja vilken sport, namn, deltagare m.m. 
+ öppnar ett formulär där man kan välja vilken sport, namn, deltagare m.m. <br />
+ 
+Länk till sidan:<br />
+  https://sebastianl.vlab.fi/YP/index.php
 
 Användare till sidan:<br />
-Username: guest<br />
-Password: 2wsx0okm<br />
+  Username: guest<br />
+  Password: 2wsx0okm<br />
 
