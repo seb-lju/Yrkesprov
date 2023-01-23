@@ -11,13 +11,30 @@
 </head>
 
 <body>
-	
+	<div class="background-blur" onclick="location.href='/YP/index.php'">
+		<div class="navbar-container">
+			<div class="navbar">
+				<div class="navbar-left">
+					<p>Home</p>
+					<p>Create Bracket</p>
+					<p>Public Brackets</p>
+					<p>About</p>
+				</div>
+				<div class="navbar-right">
+					<button class="btn btn-login" disabled>Sign in</button>
+					<button onclick="location.href='/YP/register.php'" class="btn btn-register" disabled>Sign up</button>
+					<div class="dark-mode">
+						<button id="dark" onclick="toggleDark()" disabled>Dark mode</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 <?php
 	$user="";
 	$pass="";
 	
-	echo '<div class="loginform">';?>
+	echo '<div class="registerform">';?>
 		<button class="back" onclick="location.href='/YP/index.php'">&#8617;</button>
 			<?
 				echo '<form action="register.php?a=yes" name="newuser" method="post">';
@@ -41,8 +58,8 @@
 					echo '<p>';
 						echo '<input type="submit" class="send" name="submit" id="submit" value="Sign up">';
 					echo '</p>';
-		echo '</form>';
-	echo '</div';
+				echo '</form>';
+	echo '</div>';
 	
 	function cleanData($data){
 		$data = strip_tags($data, '<b>');
@@ -73,6 +90,7 @@
 			
 			$dbconn->close();
 			
+	
 			
 			header("Location: index.php");
 		}
