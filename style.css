@@ -1,3 +1,4 @@
+/* CSS Reset*/
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -57,8 +58,12 @@ table {
 body{
 	margin: 0px;
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	transition: all ease-in-out 0.3s;
 }
-.loginform{
+
+
+/* Register */
+.registerform{
     height: 720px;
     width: 400px;
 	padding: 20px 30px 0 0;
@@ -69,7 +74,7 @@ body{
 }
 
 
-.loginform form{
+.registerform form{
     height: 720px;
     width: 400px;
     background-color: rgba(0,0,0,1);
@@ -79,32 +84,32 @@ body{
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(255,255,255,0.1);
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    border: 2px solid rgba(255,64,195,0.1);
+    box-shadow: 0 0 40px rgba(255,64,195,0.6);
     padding: 50px 35px;
 	z-index: -100;
 }
-.loginform form *{
+.registerform form *{
     font-family: 'Poppins',sans-serif;
     color: #ffffff;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
 }
-.loginform form h3{
+.registerform form h3{
     font-size: 32px;
     font-weight: 500;
     line-height: 42px;
     text-align: center;
 }
 
-.loginform label{
+.registerform label{
     display: block;
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
 }
-.loginform input{
+.registerform input{
     display: block;
     height: 50px;
     width: 100%;
@@ -115,10 +120,10 @@ body{
     font-size: 16px;
     font-weight: 300;
 }
-.loginform ::placeholder{
+.registerform ::placeholder{
     color: #e5e5e5;
 }
-.loginform .send{
+.registerform .send{
     margin-top: 50px;
     width: 80%;
     background-color: #ffffff;
@@ -132,6 +137,16 @@ body{
 	margin-right: auto;
 }
 
+.back {
+	font-size:28px;
+	color:white;
+	float:right;
+	cursor:pointer;
+	margin:20px 0 0 30px;
+	background: #000;
+}
+
+/* Navbar */
 .navbar-container {
     box-shadow: 0px 4px 5px 0px rgba(255, 64, 195, 0.71);
     -webkit-box-shadow: 0px 4px 5px 0px rgba(255, 64, 195, 0.71);
@@ -154,6 +169,13 @@ body{
 	text-decoration: none;
 	color: #000;
 }
+
+.navbar.left p {
+	text-transform: uppercase;
+	font-weight: 600;
+	text-decoration: none;
+	color: #000;
+}
 .navbar-left a:hover {
     color: #ff40c3;
 }
@@ -171,7 +193,7 @@ body{
 
 
 .btn {
-    font-weight: 500;
+    font-weight: 550;
     border: 1px solid black;
     border-radius: 40px;
     padding: 5px 20px 5px 20px;
@@ -183,6 +205,11 @@ body{
     color: white;
 }
 
+.btn-login {
+    background-color: white;
+    color: black;
+}
+
 .btn-register:hover {
     background-color: rgba(0, 0, 0, 0.7);
 }
@@ -191,11 +218,26 @@ body{
     background-color: rgba(0, 0, 0, 0.06);
 }
 
-.back {
-	font-size:28px;
-	color:white;
-	float:right;
-	cursor:pointer;
-	margin:20px 0 0 30px;
-	background: #000;
+/* Dark-mode */
+body.dark-theme{
+	background-color: #000;
+	color: white;
 }
+
+
+.background-blur{
+	filter: blur(4px);
+	-webkit-filter: blur(4px);
+	cursor:default;
+	
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
