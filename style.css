@@ -25,6 +25,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
@@ -55,6 +56,8 @@ table {
     margin: 0;
     box-sizing: border-box;
 }
+
+
 body{
 	margin: 0px;
 	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
@@ -170,12 +173,7 @@ body{
 	color: #000;
 }
 
-.navbar.left p {
-	text-transform: uppercase;
-	font-weight: 600;
-	text-decoration: none;
-	color: #000;
-}
+
 .navbar-left a:hover {
     color: #ff40c3;
 }
@@ -241,3 +239,31 @@ body.dark-theme{
   z-index: 1;
 }
 
+
+body.guestSettings{
+	background-color: aqua;
+}
+
+
+
+.object {
+	max-width: 1440px;
+	margin: auto;
+}
+
+.create {
+	margin: 40px 0px 40px 0px;
+}
+
+.footer {
+	padding: 50px;
+	text-align: center;
+}
+
+.active {
+	color: #ff40c3;
+	text-transform: uppercase;
+    font-weight: 600;
+	cursor:default;
+	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
