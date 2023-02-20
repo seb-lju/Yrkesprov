@@ -136,30 +136,14 @@ if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true){
 		</div>
 	</div>
 
-	<div class="object">
-		<div class="create">
+		<div class="object">
 		  <h1>About</h1><br>
-			  <h2>Some text some text some text some text..</h2><br>
-
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
-			  <p>Some text some text some text some text..</p><br>
+			  
+			  <p>Welcome to BracketForge, the start of a new wave of bracket generators!
+				On this webpage you have the possibility to create your own tournament bracket. We provide
+				a lot of different formats so the possibilities are endless. You may also make predicitons on publically
+				posted brackets.</p><br>
 		</div>
-	</div>
 
 	<div class="footer">
 		<div>
