@@ -262,7 +262,8 @@ body.guestSettings{
 .bracket {
 	margin: 40px 0px 40px 0px;
 	width: 75%;
-	background-color: #fad;
+	background-color: #fff;
+	border: solid 1px #FCFCFC;
 	float:left;
 	padding:50px;
 }
@@ -357,9 +358,18 @@ body.guestSettings{
     text-align: right;
     z-index: 1;
 }
-.round-16 .game{
+
+.round-32 .game{
 	height:50px;
 	margin-bottom: 50px;
+}
+.round-16 .game{
+	height:100px;
+	margin-bottom: 100px;
+}
+.round-8 .game{
+	height:200px;
+	margin-bottom: 200px;
 }
 .round-4 .game{
 	height:200px;
