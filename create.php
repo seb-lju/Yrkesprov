@@ -9,6 +9,7 @@
 <meta charset="utf-8">
 <title>Create Bracket</title>
 <link rel="stylesheet" href="style.css">
+<link src="formats.js">
 	<script>
 		
 		function toggleDark() {
@@ -49,10 +50,65 @@
 				}
 			}
 		}*/
+		
+		var playerCount = document.getElementsByClassName("input-participant").length;
+		var r32 = document.getElementsByClassName("round-32");
+		var r16 = document.getElementsByClassName("round-16");
+		var r8 = document.getElementsByClassName("round-8");
+		var r4 = document.getElementsByClassName("round-4");
+		var r2 = document.getElementsByClassName("round-2");
+
+		if (playerCount <= 16) {
+			r32.style.visibility='hidden';
+		}
+		if (playerCount <= 8) {
+			var r16 = document.getElementsByClassName("round-16");
+			r16.style.visibility='hidden';
+			r32.style.visibility='hidden';
+		}
+		if (playerCount <= 4) {
+			r8.style.visibility='hidden';
+			r16.style.visibility='hidden';
+			r32.style.visibility='hidden';
+		}
+		if (playerCount <= 2) {
+			r4.style.visibility='hidden';
+			r8.style.visibility='hidden';
+			r16.style.visibility='hidden';
+			r32.style.visibility='hidden';
+		}
+		function idCreate(){
+			var players = document.getElementsByClassName("participant");
+
+			for (var i = 0; i < players.length; i++) {
+				var player = players[i];
+
+				player.setAttribute("id", "participant-" + (i + 1));
+			}
+		}
+		
+		function addPlayer() {
+			var list = document.getElementById("participants");
+			var players = document.getElementsByClassName("participant");
+			var newDiv = document.createElement("div");
+			var currentDiv = list.lastChild;
+
+			newDiv.classList.add("participant");
+			list.appendChild(newDiv);
+			newDiv.classList.add("participant-handle", "ui-sortable-handle");
+			currentDiv.appendChild(newDiv);
+			
+			
+			for (var i = 0; i < players.length; i++) {
+				var player = players[i];
+
+				player.setAttribute("id", "participant-" + (i + 1));
+			}
+		}
 	</script>
 </head>
 
-<body>
+<body onload="idCreate()">
 	<div class="navbar-container">
 		<div class="navbar">
 			<div class="navbar-left">
@@ -167,8 +223,8 @@
 			  
 			  <input type="submit" value="Generate">
 		  </form>
-			<div class="participants ui-sortable">
-				<div class="participant" id="participant-1">
+			<div class="participants ui-sortable" id="participants">
+				<div class="participant">
 					<div class="participant-handle ui-sortable-handle"></div>
 					<div class="participant-seed ui-sortable-handle">1</div>
 					<div class="participant-name">
@@ -178,7 +234,7 @@
 						<div class="icon icon-close"></div>
 					</div>
 				</div>
-				<div class="participant" id="participant-2">
+				<div class="participant">
 					<div class="participant-handle ui-sortable-handle"></div>
 					<div class="participant-seed ui-sortable-handle">2</div>
 					<div class="participant-name">
@@ -188,7 +244,7 @@
 						<div class="icon icon-close"></div>
 					</div>
 				</div>
-				<div class="participant" id="participant-3">
+				<div class="participant">
 					<div class="participant-handle ui-sortable-handle"></div>
 					<div class="participant-seed ui-sortable-handle">3</div>
 					<div class="participant-name">
@@ -198,7 +254,7 @@
 						<div class="icon icon-close"></div>
 					</div>
 				</div>
-				<div class="participant" id="participant-4">
+				<div class="participant">
 					<div class="participant-handle ui-sortable-handle"></div>
 					<div class="participant-seed ui-sortable-handle">4</div>
 					<div class="participant-name">
@@ -211,215 +267,416 @@
 				</div>
 			</div>
 			<div class="add-buttons">
-				<div class="button button-shuffle-seeds" title="Shuffle Seeds">
-					<div class="icon icon-shuffle"></div>
-				</div>
-				<div class="button button-add-participant">+ Add Participant</div>
+				<div class="button button-add-participant" onclick="addPlayer()">+ Add Participant</div>
 			</div>
 
 		</div>
 		<div class="bracket">
-			<div class="round round-16">
-				<div class="game" id="game-8">
+			<div class="round round-32">
+				<div class="game" id="game-16">
 					<div class="slot slot-top">
 						<div class="slot-seed">1</div>
-						<div class="slot-name">Team 1</div>
+						<div class="slot-name">P1</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">32</div>
+						<div class="slot-name">T32</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game" id="game-17">
+					<div class="slot slot-top">
+						<div class="slot-seed">17</div>
+						<div class="slot-name">T17</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">16</div>
-						<div class="slot-name">Team 16</div>
+						<div class="slot-name">T16</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
-				<div class="game" id="game-9">
+				<div class="game" id="game-18">
 					<div class="slot slot-top">
 						<div class="slot-seed">9</div>
-						<div class="slot-name">Team 9</div>
+						<div class="slot-name">T9</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">24</div>
+						<div class="slot-name">T24</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game" id="game-19">
+					<div class="slot slot-top">
+						<div class="slot-seed">25</div>
+						<div class="slot-name">T25</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">8</div>
-						<div class="slot-name">Team 8</div>
+						<div class="slot-name">T8</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
-				<div class="game" id="game-10">
+				<div class="game" id="game-20">
 					<div class="slot slot-top">
 						<div class="slot-seed">5</div>
-						<div class="slot-name">Team 5</div>
+						<div class="slot-name">T5</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">28</div>
+						<div class="slot-name">T28</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game" id="game-21">
+					<div class="slot slot-top">
+						<div class="slot-seed">21</div>
+						<div class="slot-name">T21</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">12</div>
-						<div class="slot-name">Team 12</div>
+						<div class="slot-name">T12</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
-				<div class="game" id="game-11">
+				<div class="game" id="game-22">
 					<div class="slot slot-top">
 						<div class="slot-seed">13</div>
-						<div class="slot-name">Team 13</div>
+						<div class="slot-name">T13</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">20</div>
+						<div class="slot-name">T20</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game" id="game-23">
+					<div class="slot slot-top">
+						<div class="slot-seed">29</div>
+						<div class="slot-name">T29</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">4</div>
-						<div class="slot-name">Team 4</div>
+						<div class="slot-name">T4</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
-				<div class="game game-right" id="game-12">
+				<div class="game game-right" id="game-24">
 					<div class="slot slot-top">
 						<div class="slot-seed">3</div>
-						<div class="slot-name">Team 3</div>
+						<div class="slot-name">T3</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">30</div>
+						<div class="slot-name">T30</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game game-right" id="game-25">
+					<div class="slot slot-top">
+						<div class="slot-seed">19</div>
+						<div class="slot-name">T19</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">14</div>
-						<div class="slot-name">Team 14</div>
+						<div class="slot-name">T14</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
-				<div class="game game-right" id="game-13">
+				<div class="game game-right" id="game-26">
 					<div class="slot slot-top">
 						<div class="slot-seed">11</div>
-						<div class="slot-name">Team 11</div>
+						<div class="slot-name">T11</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">22</div>
+						<div class="slot-name">T22</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game game-right" id="game-27">
+					<div class="slot slot-top">
+						<div class="slot-seed">27</div>
+						<div class="slot-name">T27</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">6</div>
-						<div class="slot-name">Team 6</div>
+						<div class="slot-name">T6</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
-				<div class="game game-right" id="game-14">
+				<div class="game game-right" id="game-28">
 					<div class="slot slot-top">
 						<div class="slot-seed">7</div>
-						<div class="slot-name">Team 7</div>
+						<div class="slot-name">T7</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">26</div>
+						<div class="slot-name">T26</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game game-right" id="game-29">
+					<div class="slot slot-top">
+						<div class="slot-seed">23</div>
+						<div class="slot-name">T23</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">10</div>
-						<div class="slot-name">Team 10</div>
+						<div class="slot-name">T10</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
-				<div class="game game-right" id="game-15">
+				<div class="game game-right" id="game-30">
 					<div class="slot slot-top">
 						<div class="slot-seed">15</div>
-						<div class="slot-name">Team 15</div>
+						<div class="slot-name">T15</div>
+						<div class="slot-score"></div>
+					</div>
+					<div class="slot slot-bot">
+						<div class="slot-seed">18</div>
+						<div class="slot-name">T18</div>
+						<div class="slot-score"></div>
+					</div>
+				</div>
+				<div class="game game-right" id="game-31">
+					<div class="slot slot-top">
+						<div class="slot-seed">31</div>
+						<div class="slot-name">T31</div>
 						<div class="slot-score"></div>
 					</div>
 					<div class="slot slot-bot">
 						<div class="slot-seed">2</div>
-						<div class="slot-name">Team 2</div>
+						<div class="slot-name">T2</div>
 						<div class="slot-score"></div>
 					</div>
 				</div>
 			</div>
-			<div class="connectors connectors-8">
+			<div class="connectors connectors-16">
+				<div class="connector"></div>
+				<div class="connector"></div>
 				<div class="connector"></div>
 				<div class="connector"></div>
 				<div class="connector connector-right"></div>
 				<div class="connector connector-right"></div>
-			</div>
-			<div class="round round-8">
-				<div class="game" id="game-4">
-					<div class="slot slot-top">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-					<div class="slot slot-bot">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-				</div>
-				<div class="game" id="game-5">
-					<div class="slot slot-top">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-					<div class="slot slot-bot">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-				</div>
-				<div class="game game-right" id="game-6">
-					<div class="slot slot-top">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-					<div class="slot slot-bot">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-				</div>
-				<div class="game game-right" id="game-7">
-					<div class="slot slot-top">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-					<div class="slot slot-bot">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
-					</div>
-				</div>
-			</div>
-			<div class="connectors connectors-4">
-				<div class="connector"></div>
+				<div class="connector connector-right"></div>
 				<div class="connector connector-right"></div>
 			</div>
-			<div class="round round-4">
-				<div class="game" id="game-2">
-					<div class="slot slot-top">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
+			<div class="round round-16">
+					<div class="game" id="game-8">
+						<div class="slot slot-top">
+							<div class="slot-seed">1</div>
+							<div class="slot-name">P1</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">16</div>
+							<div class="slot-name">P16</div>
+							<div class="slot-score"></div>
+						</div>
 					</div>
-					<div class="slot slot-bot">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
+					<div class="game" id="game-9">
+						<div class="slot slot-top">
+							<div class="slot-seed">9</div>
+							<div class="slot-name">P9</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">8</div>
+							<div class="slot-name">P8</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game" id="game-10">
+						<div class="slot slot-top">
+							<div class="slot-seed">5</div>
+							<div class="slot-name">P5</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">12</div>
+							<div class="slot-name">P12</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game" id="game-11">
+						<div class="slot slot-top">
+							<div class="slot-seed">13</div>
+							<div class="slot-name">P13</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">4</div>
+							<div class="slot-name">P4</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game game-right" id="game-12">
+						<div class="slot slot-top">
+							<div class="slot-seed">3</div>
+							<div class="slot-name">P3</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">14</div>
+							<div class="slot-name">P14</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game game-right" id="game-13">
+						<div class="slot slot-top">
+							<div class="slot-seed">11</div>
+							<div class="slot-name">P11</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">6</div>
+							<div class="slot-name">P6</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game game-right" id="game-14">
+						<div class="slot slot-top">
+							<div class="slot-seed">7</div>
+							<div class="slot-name">P7</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">10</div>
+							<div class="slot-name">P10</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game game-right" id="game-15">
+						<div class="slot slot-top">
+							<div class="slot-seed">15</div>
+							<div class="slot-name">P15</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">2</div>
+							<div class="slot-name">P2</div>
+							<div class="slot-score"></div>
+						</div>
 					</div>
 				</div>
-				<div class="game game-right" id="game-3">
-					<div class="slot slot-top">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
+				<div class="connectors connectors-8">
+					<div class="connector"></div>
+					<div class="connector"></div>
+					<div class="connector connector-right"></div>
+					<div class="connector connector-right"></div>
+				</div>
+				<div class="round round-8">
+					<div class="game" id="game-4">
+						<div class="slot slot-top">
+							<div class="slot-seed">1</div>
+							<div class="slot-name">Player 1</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">8</div>
+							<div class="slot-name">Player 8</div>
+							<div class="slot-score"></div>
+						</div>
 					</div>
-					<div class="slot slot-bot">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
+					<div class="game" id="game-5">
+						<div class="slot slot-top">
+							<div class="slot-seed">5</div>
+							<div class="slot-name">Team 5</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">4</div>
+							<div class="slot-name">Team 4</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game game-right" id="game-6">
+						<div class="slot slot-top">
+							<div class="slot-seed">3</div>
+							<div class="slot-name">Team 3</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">6</div>
+							<div class="slot-name">Team 6</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+					<div class="game game-right" id="game-7">
+						<div class="slot slot-top">
+							<div class="slot-seed">7</div>
+							<div class="slot-name">Team 7</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">2</div>
+							<div class="slot-name">Team 2</div>
+							<div class="slot-score"></div>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="connectors connectors-2">
-				<div class="connector"></div>
-			</div>
-			<div class="round round-2">
-				<div class="game" id="game-1">
-					<div class="slot slot-top">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
+				<div class="connectors connectors-4">
+					<div class="connector"></div>
+					<div class="connector connector-right"></div>
+				</div>
+				<div class="round round-4">
+					<div class="game" id="game-2">
+						<div class="slot slot-top">
+							<div class="slot-seed">1</div>
+							<div class="slot-name">P1</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">4</div>
+							<div class="slot-name">P4</div>
+							<div class="slot-score"></div>
+						</div>
 					</div>
-					<div class="slot slot-bot">
-						<div class="slot-seed"></div>
-						<div class="slot-name"></div>
-						<div class="slot-score"></div>
+					<div class="game game-right" id="game-3">
+						<div class="slot slot-top">
+							<div class="slot-seed">3</div>
+							<div class="slot-name">P3</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">2</div>
+							<div class="slot-name">P2</div>
+							<div class="slot-score"></div>
+						</div>
 					</div>
 				</div>
-			</div>
+				<div class="connectors connectors-2">
+					<div class="connector"></div>
+				</div>
+				<div class="round round-2">
+					<div class="game" id="game-1">
+						<div class="slot slot-top">
+							<div class="slot-seed">1</div>
+							<div class="slot-name">P1</div>
+							<div class="slot-score"></div>
+						</div>
+						<div class="slot slot-bot">
+							<div class="slot-seed">2</div>
+							<div class="slot-name">P2</div>
+							<div class="slot-score"></div>
+						</div>
+					</div>
+				</div>
 		</div>
 
 	<div class="footer">
