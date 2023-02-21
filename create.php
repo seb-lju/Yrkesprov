@@ -51,7 +51,7 @@
 			}
 		}*/
 		
-		var playerCount = document.getElementsByClassName("input-participant").length;
+		/*var playerCount = document.getElementsByClassName("input-participant").length;
 		var r32 = document.getElementsByClassName("round-32");
 		var r16 = document.getElementsByClassName("round-16");
 		var r8 = document.getElementsByClassName("round-8");
@@ -104,11 +104,21 @@
 
 				player.setAttribute("id", "participant-" + (i + 1));
 			}
+		}*/
+		
+		// Get the modal
+
+
+		// When the user clicks on the button, open the modal
+		function openModal() {
+		  var modal = document.getElementById("createModal");
+		  modal.style.display = "block";
 		}
+
 	</script>
 </head>
 
-<body onload="idCreate()">
+<body onload="openModal()">
 	<div class="navbar-container">
 		<div class="navbar">
 			<div class="navbar-left">
@@ -184,92 +194,56 @@
 		</div>
 	</div>
 
-		<div class="create">
-		  <form action="" method="post">
-			<h2>Create Bracket</h2><br/>
-			<p>
-				<label for="bracket_name">Bracket name: <span style="color:red;">*</span></label>
-				<input type="text" name="bracket_name" required>
-			</p><br/>
+		<div id="createModal" class="create modal">
+			<div class="modal-content">
+			  <form action="" method="post">
+				<h2>Create Bracket</h2><br/>
+				<p>
+					<label for="bracket_name">Bracket name: <span style="color:red;">*</span></label>
+					<input type="text" name="bracket_name" required>
+				</p><br/>
 
-			  <p>
-				<label for="bracket_format">Format: <span style="color:red;">*</span></label>
-				<select name="format" required>
-				  <option value="single">Single Elimination</option>
-				  <option value="double">Double Elimination</option>
-				  <option value="rr">Round Robin</option>
-				  <option value="swiss">Swiss</option>
-				</select>
-			</p><br/>
-			<p>
-				<label for="bracket_name">Sport: <span style="color:red;">*</span></label>
-				<select name="sport" required>
-				  <?php
-					require "dbconn.php";
-					$sql = "SELECT * FROM sport";
-					$result = $dbconn->query($sql);
-					
-					while ($row = $result->fetch_assoc()){
-				  ?>
-						<option value="<?php echo $row["sport_id"];?>">
-						  <?php echo $row["sport"];?>
-						</option>
-				  <?php
-					}
-					$dbconn->close();
-				  ?>
-				</select>
-			</p><br/>
-			  
-			  <input type="submit" value="Generate">
-		  </form>
-			<div class="participants ui-sortable" id="participants">
-				<div class="participant">
-					<div class="participant-handle ui-sortable-handle"></div>
-					<div class="participant-seed ui-sortable-handle">1</div>
-					<div class="participant-name">
-						<input class="input-participant" type="text" name="participant-1" maxlength="35" value="Team 1">
-					</div>
-					<div class="participant-delete">
-						<div class="icon icon-close"></div>
-					</div>
-				</div>
-				<div class="participant">
-					<div class="participant-handle ui-sortable-handle"></div>
-					<div class="participant-seed ui-sortable-handle">2</div>
-					<div class="participant-name">
-						<input class="input-participant" type="text" name="participant-2" maxlength="35" value="Team 2">
-					</div>
-					<div class="participant-delete">
-						<div class="icon icon-close"></div>
-					</div>
-				</div>
-				<div class="participant">
-					<div class="participant-handle ui-sortable-handle"></div>
-					<div class="participant-seed ui-sortable-handle">3</div>
-					<div class="participant-name">
-						<input class="input-participant" type="text" name="participant-3" maxlength="35" value="Team 3">
-					</div>
-					<div class="participant-delete">
-						<div class="icon icon-close"></div>
-					</div>
-				</div>
-				<div class="participant">
-					<div class="participant-handle ui-sortable-handle"></div>
-					<div class="participant-seed ui-sortable-handle">4</div>
-					<div class="participant-name">
-						<input class="input-participant" type="text" name="participant-4" maxlength="35" value="Team 4">
-					</div>
-					<div class="participant-delete">
-						<div class="icon icon-close">
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="add-buttons">
-				<div class="button button-add-participant" onclick="addPlayer()">+ Add Participant</div>
-			</div>
+				<p>
+				  <label for="bracket_format">Format: <span style="color:red;">*</span></label>
+				  <select name="format" required>
+					<option value="single">Single Elimination</option>
+					<option value="double">Double Elimination</option>
+					<option value="rr">Round Robin</option>
+					<option value="swiss">Swiss</option>
+				  </select>
+				</p><br/>
+				<p>
+					<label for="bracket_name">Sport: <span style="color:red;">*</span></label>
+					<select name="sport" required>
+					  <?php
+						require "dbconn.php";
+						$sql = "SELECT * FROM sport";
+						$result = $dbconn->query($sql);
 
+						while ($row = $result->fetch_assoc()){
+					  ?>
+							<option value="<?php echo $row["sport_id"];?>">
+							  <?php echo $row["sport"];?>
+							</option>
+					  <?php
+						}
+						$dbconn->close();
+					  ?>
+					</select>
+				</p><br/>
+				<p>
+					<label for="participants">Participants:</label><br/>
+					<table>
+				  		
+				  	</table>
+				  	<br/>
+				  	<select>
+				  	</select> or
+				  	<input type="text"><br/>
+				</p>
+				<input type="submit" value="Generate">
+			  </form>
+			</div>
 		</div>
 		<div class="bracket">
 			<div class="round round-32">
