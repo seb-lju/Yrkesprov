@@ -6,7 +6,7 @@ Det här var min första planering:
 Bracket generator (med custom format)<br />
   Databas: Format, "sporter", lag/spelare, public brackets <br />
   Utseende: Dark mode/Light mode<br />
-  Kod + verktyg: <br />
+  Kod + verktyg: PHP, Visual Code <br />
   Användare: Ja, sparade brackets. Skapa predictions på brackets.<br />
 
 Plan:<br />
