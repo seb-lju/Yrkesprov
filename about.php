@@ -16,7 +16,7 @@ if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true){
 <html>
 <head>
 <meta charset="utf-8">
-<title>About</title>
+<title>BracketForge - About</title>
 <link rel="stylesheet" href="style.css">
 	<script>
 		function toggleDark() {
@@ -66,91 +66,28 @@ if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true){
 			<div class="navbar-left">
 				<a href="/YP/index.php">Home</a>
 				<a href="/YP/create.php">Create Bracket</a>
-				<a href="/YP/brackets.php">Public Brackets</a>
 				<div class="active">About</div>
 			</div>
-			<div class="navbar-right">
-				
-				
-				<div class="dropdown">
-					<button class="btn btn-login" onclick="dropLogin()">Sign in</button>
-					<div id="loginForm" class="dropdown-content">
-						<?php 
-							$user="";
-							$pass="";
-						
-							if(isset($_POST['username']) && isset($_POST['password'])){
-								require "dbconn.php";
-								
-								$user = $_POST['username'];
-								$pass = $_POST['password'];
-								
-								$sql = "SELECT uname FROM user WHERE uname='$user' AND pwd='$pass'";
-								$result = $dbconn->query($sql) or die($dbconn->error);
-								
-								$row=$result->fetch_assoc();
-								$url=$row['url'];
-								
-								if($result->num_rows == 1){
-									$_SESSION['logged_in'] = true;
-									
-									$dbconn->close();
-									
-									header("Location:index.php");
-									exit;
-								} else {
-									$errormsg = "Användarnamn eller lösenordet felaktigt!";
-								}
-							}
-						
-						if(isset($errormsg)){
-							echo '<p class="error">'.$errormsg.'</p>';
-						}
-						?>
-						
-						<form action="" id="loginform" name="loginform" method="post">
-							<h3>Sign up</h3> 
-							<p>
-								<label for="username">Username:</label><br /><?
-								echo'<input type="text" name="username" id="username" size="40" value="'.$user.'" required>';
-								?>
-							</p>
-							<p>
-								<label for="password">Password:</label><br /><?
-								echo'<input type="password" name="password" id="password" size="40" value="'.$pass.'" required>';
-								?>
-							</p>
-							<p>
-								<input type="submit" class="send" name="submit" id="submit" value="Sign up">
-							</p>
-						</form>
-					</div>
-				</div>
-				
-				
-				<button onclick="location.href='/YP/register.php'" class="btn btn-register">Sign up</button>
-				<div class="dark-mode">
-					<button id="dark" onclick="toggleDark()">Dark mode</button>
-				</div>
-			</div>
+			
 		</div>
 	</div>
 
 		<div class="object">
-		  <h1>About</h1><br>
+			<div class="about">
+		  		<h1 style="font-weight:bold;">About</h1><br>
 			  
-			  <p>Welcome to BracketForge, the start of a new wave of bracket generators!
-				On this webpage you have the possibility to create your own tournament bracket. We provide
-				a lot of different formats so the possibilities are endless. You may also make predicitons on publically
-				posted brackets.</p><br>
+			  	<p>Welcome to BracketForge, the start of a new wave of bracket generators!<br><br>
+				On this webpage you have the possibility to create your own tournament bracket. <br><br>We will in the future provide
+				a lot of different formats so stay tuned!</p><br>
+			</div>
 		</div>
 
 	<div class="footer">
 		<div>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tincidunt odio lectus, vitae viverra nulla consequat ut. Proin porta, libero non interdum cursus, lectus odio congue nunc, in scelerisque nulla.
+			Welcome to BracketForge, the start of a new wave of bracket generators!
         </div>
         <div style="margin-top: 50px">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sit.
+                Created by Sebastian Ljungars 2023
         </div>
 	</div>
 </body>
